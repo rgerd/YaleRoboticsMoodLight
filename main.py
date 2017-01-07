@@ -1,26 +1,30 @@
+#!/usr/bin/python3
+
 import os.path
 
-from flask import Flask
+from util.parse import parseRequest
+from util.twitter import getTwitterData
+from util.emotion import getEmotion
+from util.color import emotionToColor
+
+from flask import Flask, render_template, request
 app = Flask(__name__)
 
-def readFile(fileName):
-    filePtr = open(fileName, 'r')
-    contents = filePtr.read()
-    return contents
-
+# Returns the index page that shows the UI for interacting with the server
 @app.route("/")
 def showIndex():
-    return showPage("index");
+    return render_template('index.html', moo='moo')
 
-@app.route("/<pageName>")
-def showPage(pageName):
-    if(os.path.isfile(pageName)):
-        return readFile(pageName)
-    return getCode(pageName, "index.html");
-
-@app.route("/web/<pageName>/<fileName>")
-def getCode(pageName, fileName):
-    return readFile("web/" + pageName + "/" + fileName)
+# Processes the data that came from the user
+@app.route("/process", methods=['POST'])
+def processData():
+    dictionary = parseRequest(request.form['request'])
+    twitterData = getTwitterData(dictionary)
+    emotion = getEmotion(twitterData)
+    color = emotionToColor(emotion)
+    print(color)
+    # storeColor(color)
+    return str(color)
 
 if __name__ == "__main__":
   app.run()

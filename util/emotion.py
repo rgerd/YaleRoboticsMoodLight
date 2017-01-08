@@ -4,7 +4,9 @@ from urllib.parse import urlencode
 
 # Returns a tuple, (emotion, magnitude), that represents the
 # overall emotion calculated from an array of tweets, provided
-# by getTwitterData in util/twitter.py
+# by getTwitterData in util/twitter.py. For now, the current emotion
+# API only gives three emotions (pos, neg, neutral) with a magnitude
+# from 0.0 to 1.0.
 def getEmotion(twitterData):
     # YOUR CODE HERE
     return ('pos', 0.9) # (For example)

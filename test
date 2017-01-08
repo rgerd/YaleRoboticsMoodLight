@@ -1,18 +1,28 @@
-import sys, json, random
+import sys
 
+if len(sys.argv) < 2:
+    print("usage: ./test [twitter, emotion, color]")
+    exit()
+
+import json, random
 from util.twitter import getTwitterData
 from util.emotion import getEmotion
 from util.color import emotionToColor
 
+# Reads in the example request that might come from the UI
 with open("example_request.txt", 'r') as f:
     exampleRequest = json.loads(''.join(f.readlines()))
 
+# Reads in example tweets, which could be anything
 with open("example_tweets.txt", 'r') as f:
     exampleTweets = f.readlines()
     exampleTweets = [s[:-1] for s in exampleTweets] # Remove newlines
 
+# Creates an example emotion with "pos" and a random magnitude. Feel free
+# to change
 exampleEmotion = ('pos', random.random())
 
+# Runs the corresponding function
 def test(x):
     if x == 'twitter':
         return getTwitterData(exampleRequest)
@@ -21,9 +31,5 @@ def test(x):
     if x == 'color':
         return emotionToColor(exampleEmotion)
     return "usage: ./test [twitter, emotion, color]"
-
-if len(sys.argv) < 2:
-    print("usage: ./test [twitter, emotion, color]")
-    exit()
 
 print(str(test(sys.argv[1])))

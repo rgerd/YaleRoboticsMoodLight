@@ -91,4 +91,3 @@ ENV/
 ngrok
 
 config/twitterconfig.py
-test

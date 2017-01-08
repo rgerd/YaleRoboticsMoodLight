@@ -5,8 +5,10 @@ server:
 PYTHON_3_LOCATION=$(shell which python3)
 # Installs dependancies and sets up the test command script
 installation:
+	# Install dependencies
 	pip install --upgrade pip
 	pip install --upgrade -r requirements.txt
+	# Add interpreter line to test script
 	chmod +rwx test
 	echo \#!$(PYTHON_3_LOCATION) > temp
 	cat test >> temp

@@ -1,5 +1,3 @@
-#!/usr/bin/python3
-
 import os.path
 
 from util.parse import parseRequest

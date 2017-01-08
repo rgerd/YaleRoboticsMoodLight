@@ -1,0 +1,6 @@
+{
+    "nachos": ["realDonaldTrump"],
+    "burritos": ["HillaryClinton", "BarackObama"],
+    "enchaladas": ["HillaryClinton"],
+    "cows": []
+}

@@ -1,0 +1,29 @@
+import sys, json, random
+
+from util.twitter import getTwitterData
+from util.emotion import getEmotion
+from util.color import emotionToColor
+
+with open("example_request.txt", 'r') as f:
+    exampleRequest = json.loads(''.join(f.readlines()))
+
+with open("example_tweets.txt", 'r') as f:
+    exampleTweets = f.readlines()
+    exampleTweets = [s[:-1] for s in exampleTweets] # Remove newlines
+
+exampleEmotion = ('pos', random.random())
+
+def test(x):
+    if x == 'twitter':
+        return getTwitterData(exampleRequest)
+    if x == 'emotion':
+        return getEmotion(exampleTweets)
+    if x == 'color':
+        return emotionToColor(exampleEmotion)
+    return "usage: ./test [twitter, emotion, color]"
+
+if len(sys.argv) < 2:
+    print("usage: ./test [twitter, emotion, color]")
+    exit()
+
+print(str(test(sys.argv[1])))

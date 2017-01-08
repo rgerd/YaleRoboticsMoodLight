@@ -24,3 +24,4 @@ The back-end for a mood light that expresses the mood of the internet!
   * Open up the shell, and navigate to the folder you just cloned
   * In the shell, run `make installation` (this installs all requirements for the server code to run)
   * To run the server, either run `make server` or `FLASK_APP=main.py flask run`
+  * Now navigate to localhost:5000 to see the index page!

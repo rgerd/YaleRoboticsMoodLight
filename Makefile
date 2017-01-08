@@ -4,4 +4,8 @@ server:
 installation:
 	pip install --upgrade pip
 	pip install --upgrade -r requirements.txt
-	chmod +x test
+	chmod +rwx test
+	python3Location=$(which python3) echo \#!$(python3Location) > temp
+	cat test >> temp
+	cat temp > test
+	rm temp

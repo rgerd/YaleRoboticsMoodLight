@@ -25,3 +25,6 @@ The back-end for a mood light that expresses the mood of the internet!
   * In the shell, run `make installation` (this installs all requirements for the server code to run)
   * To run the server, either run `make server` or `FLASK_APP=main.py flask run`
   * Now navigate to localhost:5000 to see the index page!
+  * To test a specific function, run `./test` with one of `twitter` `emotion` or `color`
+    * For example, `./test emotion` will run the `getEmotion` function in `/util/emotion.py` with the data in `example_tweets.py`
+  

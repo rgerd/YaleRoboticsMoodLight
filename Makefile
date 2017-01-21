@@ -14,3 +14,5 @@ installation:
 	cat test >> temp
 	cat temp > test
 	rm temp
+	echo "test" >> .gitignore
+	echo ".gitignore" >> .gitignore

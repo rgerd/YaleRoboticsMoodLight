@@ -29,7 +29,7 @@ The back-end for a mood light that expresses the mood of the internet!
   * Add the confidential twitterconfig.py file to the config folder
   * Open up the shell, and navigate to the folder you just cloned
   * In the shell, run `make installation` (this installs all requirements for the server code to run)
-    * This will trigger a change in the `test` file because the Makefile adds a line to the top pointing to your python 3 interpreter. You should discard this change so that it doesn't get pushed up into the repository, as everyone may have different locations for their interpreters. See [here] (http://stackoverflow.com/questions/52704/how-do-i-discard-unstaged-changes-in-git) for how to do it in the command line. If you're using Github Desktop, right-click the change and click "Discard Changes..."
+    * This will trigger a change in the `test` file because the Makefile adds a line to the top pointing to your python 3 interpreter. This change will automatically be discarded by the `.gitignore` file.
   * To run the server, either run `make server` or `FLASK_APP=main.py flask run`
   * Now navigate to localhost:5000 to see the index page!
   * To test a specific function, run `./test` with one of `twitter` `emotion` or `color`

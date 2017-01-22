@@ -8,7 +8,8 @@ import json
 #   'nachos': ['realDonaldTrump'],
 #   'burritos': ['HillaryClinton', 'BarackObama'],
 #   'enchaladas': ['HillaryClinton'],
-#   'cows': []
+#   'cows': [],
+#   '*': ['HillaryClinton', 'realDonaldTrump']
 # }
 # getTwitterData(request) returns:
 # all tweets by donald trump that contain the word 'nachos'
@@ -16,6 +17,8 @@ import json
 # + all tweets by hillary clinton containing the word 'burritos'
 # + all tweets by hillary clinton containing the word 'enchaladas'
 # + all tweets by all users containing the word 'cows'
+# + all tweets by hillary clinton
+# + all tweets by donald trump
 def getTwitterData(request):
     # YOUR CODE HERE
     return []

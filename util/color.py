@@ -13,16 +13,17 @@ def emotionToColor(emotion):
     #yellow = joy
     if emotion[0] = 'pos':
         color=60 #yellow
-        var lightness = emotion[1]*100;
-        return {"hue": color, "saturation": 100, "lightness": lightness}
 
     #white = neutral
     if emotion[0] = 'neutral':
-        return {"hue": 0, "saturation": 0, "lightness": 100}
+        color=0 #white
 
-#green=disgust
+    #green=disgust
     if emotion[0] = 'negative':
         color=120 #green
-        var lightness = emotion[1]*100;
-        return {"hue": color, "saturation": 100, "lightness": lightness}
+        
+    else:
+        color=0
+    
+    return {"hue": color, "saturation": 1.0, "lightness": emotion[1]}
 

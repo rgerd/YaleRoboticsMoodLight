@@ -14,16 +14,12 @@ def emotionToColor(emotion):
     if emotion[0] = 'pos':
         color=60 #yellow
 
-    #white = neutral
-    if emotion[0] = 'neutral':
-        color=0 #white
-
     #green=disgust
     if emotion[0] = 'negative':
         color=120 #green
         
     else:
-        color=0
+        color=0 #neutral or anything else: color will be white
     
     return {"hue": color, "saturation": 1.0, "lightness": emotion[1]}
 

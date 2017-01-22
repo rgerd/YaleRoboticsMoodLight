@@ -20,6 +20,7 @@ def emotionToColor(emotion):
         
     else:
         color=0 #neutral or anything else: color will be white
-    
-    return {"hue": color, "saturation": 1.0, "lightness": emotion[1]}
+
+    import colorsys
+    rgbval = colorsys.hls_to_rgb(color/360, emotion[1], 1.0)
 

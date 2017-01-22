@@ -9,4 +9,20 @@
 # Try to use both the label (pos/neg/neutral) as well as the magnitude to pick
 # a color. Inspiration: http://www.w3schools.com/colors/colors_names.asp
 def emotionToColor(emotion):
-    return "blue" # Just a default return. Feel free to change.
+    
+    #yellow = joy
+    if emotion[0] = 'pos':
+        color=60 #yellow
+        var lightness = emotion[1]*100;
+        return {"hue": color, "saturation": 100, "lightness": lightness}
+
+    #white = neutral
+    if emotion[0] = 'neutral':
+        return {"hue": 0, "saturation": 0, "lightness": 100}
+
+#green=disgust
+    if emotion[0] = 'negative':
+        color=120 #green
+        var lightness = emotion[1]*100;
+        return {"hue": color, "saturation": 100, "lightness": lightness}
+

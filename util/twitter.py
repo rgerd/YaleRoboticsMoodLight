@@ -19,9 +19,16 @@ import json
 # + all tweets by all users containing the word 'cows'
 # + all tweets by hillary clinton
 # + all tweets by donald trump
+
 def getTwitterData(request):
-    # YOUR CODE HERE
-    return []
+	all_tweets = []
+    for keyword, users in request.items:
+    	if not users:
+    		all_tweets.extend(getPostsByAll(keyword))
+    	else:
+    		for user in users:
+    			all_tweets.extend(getPostsByUser(user, keyword))
+    return all_tweets
 
 
 ###############################################################################
@@ -34,7 +41,11 @@ def getPostsByUser(twitter_handle, keyword):
     from config.twitterconfig import twitter_api
     timeline = twitter_api.GetUserTimeline(screen_name=twitter_handle, count=sys.maxsize)
     tweets = [s.text for s in timeline]
-    return filterTweetsByKeyword(tweets, keyword)
+    #if keyword is a wild card, just treturn tweets, don't filter by keyword
+    if keyword == '*':
+    	return tweets
+    else:
+    	return filterTweetsByKeyword(tweets, keyword)
 
 # Removes all tweets not containing a given `keyword`, returning an array
 def filterTweetsByKeyword(tweets, keyword):

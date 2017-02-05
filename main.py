@@ -6,6 +6,7 @@ from util.parse import parseRequest
 from util.twitter import getTwitterData
 from util.emotion import getEmotion
 from util.color import emotionToColor
+from util.file import writeToFile
 
 from flask import Flask, render_template, request
 app = Flask(__name__)
@@ -22,7 +23,7 @@ def processData():
     twitterData = getTwitterData(dictionary)
     emotion = getEmotion(twitterData)
     color = emotionToColor(emotion)
-    print(color)
+    writeToFile(dictionary, color)
     # storeColor(color)
     return str(color)
 

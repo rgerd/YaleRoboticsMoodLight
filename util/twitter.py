@@ -21,25 +21,14 @@ import json
 # + all tweets by donald trump
 
 def getTwitterData(request):
-<<<<<<< Updated upstream
 	all_tweets = []
-	for keyword, users in request.items:
+	for keyword, users in request.items():
 		if not users:
 			all_tweets.extend(getPostsByAll(keyword))
 		else:
 			for user in users:
 				all_tweets.extend(getPostsByUser(user, keyword))
 	return all_tweets
-=======
-    all_tweets = []
-    for keyword, users in request.items:
-        if not users:
-            all_tweets.extend(getPostsByAll(keyword))
-        else:
-            for user in users:
-                all_tweets.extend(getPostsByUser(user, keyword))
-    return all_tweets
->>>>>>> Stashed changes
 
 
 ###############################################################################

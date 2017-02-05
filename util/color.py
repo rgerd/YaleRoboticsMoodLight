@@ -19,11 +19,11 @@ def emotionToColor(emotion):
         color=225 #blue
 
     else:
-        color=60 #neutral or anything else: color will be yellow
+        color=255 #neutral or anything else: color will be purple
 
     # 0 < mag < 1
     # 1 < lightness < .5
-    lightness = 1 - .5(emotion[1]);
+    lightness = 1 - .5*(emotion[1]);
 
     import colorsys
     rgbval = colorsys.hls_to_rgb(color/360, lightness, 1.0)

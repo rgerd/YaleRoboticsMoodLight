@@ -27,3 +27,7 @@ def emotionToColor(emotion):
 
     import colorsys
     rgbval = colorsys.hls_to_rgb(color/360, lightness, 1.0)
+
+    
+
+    return hexString
